@@ -1,0 +1,43 @@
+
+body{
+	
+	color:#000;
+	font-family: Verdana,arial,sans-serif;
+	background-color:#F7F7F7;
+	
+}
+
+
+h1{
+	text-align: center;
+	color: #000;
+	font-size: 45px;
+	font-family: 'century Gothic',serif;
+	}
+
+p{
+	
+	font-size: 22px;
+	color:#000;
+	text-align: justify;
+}
+
+
+li{
+	color: #000;
+	list-style: none;
+
+}
+
+.input{
+ 	height: 60px;
+ 	border: 1px solid #fa5454;
+ 	border-radius: 3px; 
+}
+
+.espace{
+	padding:12px;
+}
+.top{
+	padding-top: 10%;
+}
