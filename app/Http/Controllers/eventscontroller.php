@@ -25,8 +25,7 @@ class eventscontroller extends Controller
      */
     public function create()
     {
-        $event=new event;
-        return view('pages.create',compact('event'));
+        return view('pages.create');
     }
 
     /**
@@ -47,7 +46,9 @@ class eventscontroller extends Controller
         'location'=>$request->location,
         'city'=>$request->city
        ]);
-        
+        flashy('Evénement creé avec succès');
+       
+
        return redirect()->route('home');
     }
 
@@ -93,6 +94,8 @@ class eventscontroller extends Controller
         'location'=>$request->location,
         'city'=>$request->city
        ]);
+        flashY(sprintf('Evénement %s Modifié avec succès',$event->title));
+
        return redirect()->route('events.show',$event);
     }
 
@@ -105,6 +108,9 @@ class eventscontroller extends Controller
     public function destroy(event $event)
     {
       $event->delete();
+   flashy()->error(sprintf('Evénement %s supprimer avec succès',$event->title),'danger');
+     
+
     return redirect()->route('home');
     }
 }
