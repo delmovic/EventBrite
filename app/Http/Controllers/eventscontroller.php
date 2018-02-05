@@ -7,6 +7,7 @@ use App\event;
 
 class eventscontroller extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
@@ -87,12 +88,13 @@ class eventscontroller extends Controller
 
        $event->update([
         'title'=>$request->title,
+        'slug'=>str_slug($request->title),
         'description'=>$request->description,
         'start'=>$request->start,
         'hours'=>$request->hour,
         'price'=>$request->price,
         'location'=>$request->location,
-        'city'=>$request->city
+        'city'=>$request->city,
        ]);
         flashY(sprintf('Evénement %s Modifié avec succès',$event->title));
 
@@ -108,9 +110,9 @@ class eventscontroller extends Controller
     public function destroy(event $event)
     {
       $event->delete();
-   flashy()->error(sprintf('Evénement %s supprimer avec succès',$event->title),'danger');
+   flashy()->error(sprintf('Evénement %s supprimer avec succès',$event->title));
      
 
-    return redirect()->route('home');
+    return redirect()->home();
     }
 }

@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'URl Shortner'),
+    'name' => env('APP_NAME', 'EventBrite'),
 
     /*
     |--------------------------------------------------------------------------

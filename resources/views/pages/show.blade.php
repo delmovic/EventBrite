@@ -23,11 +23,13 @@
 			</div>
 			<div class="row ">
 				<a class="btn btn-warning " href="{{route('events.edit',$event) }} "><i class="fa fa-edit"></i> Modifier</a>
-				<form  style="display: inline-block;" method="POST" action="{{route('events.destroy',$event) }} ">
+				{{-- <a href="{{route('events.destroy',$event) }} " class="btn btn-danger " data-method="DELETE" data-confirm='Voulez-vous supprimer ce evenement ?'  ><i class="fa fa-times"></i> Supprimer</a>  --}}
+
+				 <form  style="display: inline-block;" method="POST" action="{{route('events.destroy',$event) }}" onsubmit=" return confirm('Voulez-vous supprimer cet évènement ?') ">
 					{{ method_field("DELETE") }}
 					{{ csrf_field() }}
 					<button class="btn btn-danger btn-block"><i class="fa fa-times"></i> Suprimer</button>
-				</form>
+				</form> 
 			</div><hr>
 			<p>
 			<a href="{{route('home') }} " class="btn btn-primary btn-block"><i class="fa fa-long-arrow-left"></i> Tous les évènements</a>  

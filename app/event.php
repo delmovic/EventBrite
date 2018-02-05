@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Cviebrock\EloquentSluggable\Sluggable;
 
 use Illuminate\Database\Eloquent\Model;
 // Pour filtrer les champs autorisés afin d'eviter les injections sql 
@@ -9,9 +10,22 @@ use Illuminate\Database\Eloquent\Model;
 
 class event extends Model
 {
-   protected $fillable=['title','description','start','hours','price','location','city'];
+	use Sluggable;
+
+   protected $fillable=['title','slug','description','start','hours','price','location','city'];
    protected $dates=['start'];
 
+   public function getRouteKeyName(){
+   	return 'slug';
+   }
 
+	public function sluggable()
+	{
+        return [
+            'slug' => [
+                'source' => 'title'
+            ]
+        ];
+    }
 
 }
